@@ -11,7 +11,8 @@
     "test:2": "jest --watch ./test/2_TodoList.test.js",
     "test:3": "jest --watch ./test/3_NewTodo.test.js",
     "test:4": "jest --watch ./test/4_TodoApp.test.js",
-    "test:5": "jest --watch ./test/5_NewTodo_handles_events.test.js"
+    "test:5": "jest --watch ./test/5_NewTodo_handles_events.test.js",
+    "test:6": "jest --watch ./test/6_TodoApp_adds_new_todo.test.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
