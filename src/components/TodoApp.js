@@ -6,7 +6,11 @@ class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      todos: [
+        { id: 1, text: 'Drink Coffee', complete: false },
+        { id: 2, text: 'Feed Cat', complete: true },
+        { id: 3, text: 'Sleep', complete: false },
+      ],
     };
   }
   render() {
