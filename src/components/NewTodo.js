@@ -6,12 +6,23 @@ class NewTodo extends Component {
     this.state = {
       text: '',
     };
+    this.changeHandler = this.changeHandler.bind(this);
+  }
+
+  changeHandler(event) {
+    this.setState({
+      text: event.target.value,
+    });
   }
 
   render() {
     return (
       <div>
-        <input type="text" value={this.state.text} />
+        <input
+          type="text"
+          onChange={this.changeHandler}
+          value={this.state.text}
+        />
         <button>Add</button>
       </div>
     );
