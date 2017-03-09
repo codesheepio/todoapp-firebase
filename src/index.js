@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './components/TodoList';
+import NewTodo from './components/NewTodo';
 import './styles/main.css';
 
 const todos = [
@@ -9,7 +9,4 @@ const todos = [
   { id: 3, text: 'Sleep', complete: false },
 ];
 
-ReactDOM.render(
-  <TodoList todos={todos} />,
-  document.getElementById('react-root')
-);
+ReactDOM.render(<NewTodo />, document.getElementById('react-root'));
