@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import NewTodo from './NewTodo';
 import TodoList from './TodoList';
+import { fetchTodos } from '../utils/firebaseHelper';
 
 class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        { id: 1, text: 'Drink Coffee', complete: false },
-        { id: 2, text: 'Feed Cat', complete: true },
-        { id: 3, text: 'Sleep', complete: false },
-      ],
+      todos: [],
     };
     this.addHandler = this.addHandler.bind(this);
     this.toggleHandler = this.toggleHandler.bind(this);
+  }
+
+  componentDidMount() {
+    fetchTodos(todos => {
+      this.setState({
+        todos,
+      });
+    });
   }
 
   addHandler(text) {
