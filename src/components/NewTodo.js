@@ -7,12 +7,17 @@ class NewTodo extends Component {
       text: '',
     };
     this.changeHandler = this.changeHandler.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   changeHandler(event) {
     this.setState({
       text: event.target.value,
     });
+  }
+
+  clickHandler() {
+    this.props.addHandler(this.state.text);
   }
 
   render() {
@@ -23,7 +28,7 @@ class NewTodo extends Component {
           onChange={this.changeHandler}
           value={this.state.text}
         />
-        <button>Add</button>
+        <button onClick={this.clickHandler}>Add</button>
       </div>
     );
   }
