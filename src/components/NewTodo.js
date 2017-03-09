@@ -11,7 +11,7 @@ class NewTodo extends Component {
   render() {
     return (
       <div>
-        <input type="text" />
+        <input type="text" value={this.state.text} />
         <button>Add</button>
       </div>
     );
