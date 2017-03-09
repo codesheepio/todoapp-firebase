@@ -8,6 +8,7 @@ class TodoApp extends Component {
     super(props);
     this.state = {
       todos: [],
+      loading: true,
     };
     this.addHandler = this.addHandler.bind(this);
     this.toggleHandler = this.toggleHandler.bind(this);
@@ -17,6 +18,7 @@ class TodoApp extends Component {
     syncTodos(todos => {
       this.setState({
         todos,
+        loading: false,
       });
     });
   }
@@ -49,7 +51,12 @@ class TodoApp extends Component {
     return (
       <div>
         <NewTodo addHandler={this.addHandler} />
-        <TodoList todos={this.state.todos} toggleHandler={this.toggleHandler} />
+        {this.state.loading
+          ? 'Loading...'
+          : <TodoList
+              todos={this.state.todos}
+              toggleHandler={this.toggleHandler}
+            />}
       </div>
     );
   }
