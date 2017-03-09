@@ -12,11 +12,29 @@ class TodoApp extends Component {
         { id: 3, text: 'Sleep', complete: false },
       ],
     };
+    this.addHandler = this.addHandler.bind(this);
   }
+
+  addHandler(text) {
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          id: this.state.todos.reduce(
+            (max, todo) => Math.max(max, todo.id),
+            0
+          ) + 1,
+          text,
+          complete: false,
+        },
+      ],
+    });
+  }
+
   render() {
     return (
       <div>
-        <NewTodo />
+        <NewTodo addHandler={this.addHandler} />
         <TodoList todos={this.state.todos} />
       </div>
     );
