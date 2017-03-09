@@ -3,6 +3,12 @@ import NewTodo from './NewTodo';
 import TodoList from './TodoList';
 
 class TodoApp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [],
+    };
+  }
   render() {
     return (
       <div>
