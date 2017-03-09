@@ -7,12 +7,16 @@ firebase.initializeApp(config);
 const database = firebase.database();
 
 const fetchTodos = callback => {
-  const todos = [
-    { id: 1, text: 'Drink Coffee', complete: false },
-    { id: 2, text: 'Feed Cat', complete: true },
-    { id: 3, text: 'Sleep', complete: false },
-  ];
-  callback(todos);
+  database.ref('todos').once('value').then(snapshot => {
+    const todos = [];
+
+    if (snapshot.val()) {
+      snapshot.forEach(snap => {
+        todos.push(snap.val());
+      });
+    }
+    callback(todos);
+  });
 };
 
 export { fetchTodos };
