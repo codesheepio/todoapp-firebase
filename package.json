@@ -7,7 +7,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "test:1": "jest --watch ./test/1_TodoItem.test.js"
+    "test:1": "jest --watch ./test/1_TodoItem.test.js",
+    "test:2": "jest --watch ./test/2_TodoList.test.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
