@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NewTodo from './NewTodo';
 import TodoList from './TodoList';
-import { fetchTodos, saveTodos } from '../utils/firebaseHelper';
+import { syncTodos, saveTodos } from '../utils/firebaseHelper';
 
 class TodoApp extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class TodoApp extends Component {
   }
 
   componentDidMount() {
-    fetchTodos(todos => {
+    syncTodos(todos => {
       this.setState({
         todos,
       });

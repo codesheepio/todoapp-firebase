@@ -6,8 +6,8 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-const fetchTodos = callback => {
-  database.ref('todos').once('value').then(snapshot => {
+const syncTodos = callback => {
+  database.ref('todos').on('value', snapshot => {
     const todos = [];
 
     if (snapshot.val()) {
@@ -27,4 +27,4 @@ const saveTodos = todos => {
   });
 };
 
-export { fetchTodos, saveTodos };
+export { syncTodos, saveTodos };
