@@ -13,6 +13,7 @@ class TodoApp extends Component {
       ],
     };
     this.addHandler = this.addHandler.bind(this);
+    this.toggleHandler = this.toggleHandler.bind(this);
   }
 
   addHandler(text) {
@@ -31,11 +32,22 @@ class TodoApp extends Component {
     });
   }
 
+  toggleHandler(id) {
+    this.setState({
+      todos: this.state.todos.map(
+        todo =>
+          todo.id === id
+            ? { id: todo.id, text: todo.text, complete: !todo.complete }
+            : todo
+      ),
+    });
+  }
+
   render() {
     return (
       <div>
         <NewTodo addHandler={this.addHandler} />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} toggleHandler={this.toggleHandler} />
       </div>
     );
   }
