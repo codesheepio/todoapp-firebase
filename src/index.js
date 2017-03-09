@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoItem from './components/TodoItem';
+import TodoList from './components/TodoList';
 import './styles/main.css';
 
+const todos = [
+  { id: 1, text: 'Drink Coffee', complete: false },
+  { id: 2, text: 'Feed Cat', complete: true },
+  { id: 3, text: 'Sleep', complete: false },
+];
+
 ReactDOM.render(
-  <TodoItem text="Feed Cat" complete />,
+  <TodoList todos={todos} />,
   document.getElementById('react-root')
 );
