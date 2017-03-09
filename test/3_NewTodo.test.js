@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NewTodo from '../src/components/NewTodo';
 
-describe('NewTodo', () => {
+describe('3) NewTodo', () => {
   let wrapper;
 
   beforeEach(() => {
