@@ -19,4 +19,12 @@ const fetchTodos = callback => {
   });
 };
 
-export { fetchTodos };
+const saveTodos = todos => {
+  todos.forEach(todo => {
+    database.ref(`todos/${todo.id}`).set({
+      ...todo,
+    });
+  });
+};
+
+export { fetchTodos, saveTodos };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NewTodo from './NewTodo';
 import TodoList from './TodoList';
-import { fetchTodos } from '../utils/firebaseHelper';
+import { fetchTodos, saveTodos } from '../utils/firebaseHelper';
 
 class TodoApp extends Component {
   constructor(props) {
@@ -22,19 +22,16 @@ class TodoApp extends Component {
   }
 
   addHandler(text) {
-    this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          id: this.state.todos.reduce(
-            (max, todo) => Math.max(max, todo.id),
-            0
-          ) + 1,
-          text,
-          complete: false,
-        },
-      ],
-    });
+    const newTodos = [
+      ...this.state.todos,
+      {
+        id: this.state.todos.reduce((max, todo) => Math.max(max, todo.id), 0) +
+          1,
+        text,
+        complete: false,
+      },
+    ];
+    saveTodos(newTodos);
   }
 
   toggleHandler(id) {
