@@ -18,6 +18,9 @@ class NewTodo extends Component {
 
   clickHandler() {
     this.props.addHandler(this.state.text);
+    this.setState({
+      text: '',
+    });
   }
 
   render() {
